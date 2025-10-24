@@ -33,9 +33,7 @@ describe("amm creation", () => {
   const seed = new anchor.BN(42);
   const fee = 30;
 
-
   it("Initializing the AMM pool", async () => {
-
     mintX = await createMint(connection, admin.payer, admin.publicKey, null, 6);
     mintY = await createMint(connection, admin.payer, admin.publicKey, null, 6);
 
@@ -69,15 +67,44 @@ describe("amm creation", () => {
       .rpc();
     console.log(`https://explorer.solana.com/tx/${tx}?cluster=devnet`);
 
-    console.log("✅ AMM initialized successfully");;
+    console.log("✅ AMM initialized successfully");
 
     // Create user token accounts and mint initial balances
-    const ataX = await getOrCreateAssociatedTokenAccount(connection, admin.payer, mintX, admin.publicKey);
-    const ataY = await getOrCreateAssociatedTokenAccount(connection, admin.payer, mintY, admin.publicKey);
-    const ataLp = await getOrCreateAssociatedTokenAccount(connection, admin.payer, lpMint, admin.publicKey);
+    const ataX = await getOrCreateAssociatedTokenAccount(
+      connection,
+      admin.payer,
+      mintX,
+      admin.publicKey
+    );
+    const ataY = await getOrCreateAssociatedTokenAccount(
+      connection,
+      admin.payer,
+      mintY,
+      admin.publicKey
+    );
+    const ataLp = await getOrCreateAssociatedTokenAccount(
+      connection,
+      admin.payer,
+      lpMint,
+      admin.publicKey
+    );
 
-    await mintTo(connection, admin.payer, mintX, ataX.address, admin.payer, 1_000_000);
-    await mintTo(connection, admin.payer, mintY, ataY.address, admin.payer, 1_000_000);
+    await mintTo(
+      connection,
+      admin.payer,
+      mintX,
+      ataX.address,
+      admin.payer,
+      1_000_000
+    );
+    await mintTo(
+      connection,
+      admin.payer,
+      mintY,
+      ataY.address,
+      admin.payer,
+      1_000_000
+    );
 
     userAtaX = ataX.address;
     userAtaY = ataY.address;
@@ -108,5 +135,24 @@ describe("amm creation", () => {
     console.log("✅ Deposited liquidity");
   });
 
-  
+  it("Swaps token X for token Y", async () => {
+    const amountIn = new anchor.BN(100_000);
+    const minOut = new anchor.BN(50_000);
+
+    const tx = await program.methods
+      .swap(true, amountIn, minOut)
+      .accounts({
+        user: admin.publicKey,
+        userTokenIn: userAtaX,
+        userTokenOut: userAtaY,
+        config: configPda,
+        vaultIn: vaultX,
+        vaultOut: vaultY,
+        tokenProgram: anchor.utils.token.TOKEN_PROGRAM_ID,
+      })
+      .rpc();
+
+    console.log(`https://explorer.solana.com/tx/${tx}?cluster=devnet`);
+    console.log("✅ Swapped X for Y");
+  });
 });

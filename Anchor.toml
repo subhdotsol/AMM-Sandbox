@@ -14,7 +14,7 @@ amms = "95RfKC6UDmxeMjR9AAhF9xVauYmeFQawVK5W51tHn8wb"
 url = "https://api.apr.dev"
 
 [provider]
-cluster = "localnet"
+cluster = "devnet"
 wallet = "~/.config/solana/id.json"
 
 [scripts]

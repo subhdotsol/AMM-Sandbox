@@ -65,7 +65,7 @@ describe("amm creation", () => {
         systemProgram: anchor.web3.SystemProgram.programId,
       })
       .rpc();
-    console.log(`https://explorer.solana.com/tx/${tx}?cluster=devnet`);
+    console.log(`AMM Initialization Transaction Signature: https://explorer.solana.com/tx/${tx}?cluster=devnet`);
 
     console.log("AMM initialized successfully");
 
@@ -134,7 +134,7 @@ describe("amm creation", () => {
       })
       .rpc();
 
-    console.log(`https://explorer.solana.com/tx/${tx}?cluster=devnet`);
+    console.log(`Deposited Liquidity Transaction Signature: https://explorer.solana.com/tx/${tx}?cluster=devnet`);
     console.log("Deposited liquidity");
   });
 
@@ -156,7 +156,7 @@ describe("amm creation", () => {
       })
       .rpc();
 
-    console.log(`https://explorer.solana.com/tx/${tx}?cluster=devnet`);
+    console.log(`Swapped X for Y Transaction Signature: https://explorer.solana.com/tx/${tx}?cluster=devnet`);
     console.log("Swapped X for Y");
   });
 
@@ -180,7 +180,7 @@ describe("amm creation", () => {
       .signers([admin.payer])
       .rpc();
 
-    console.log(`https://explorer.solana.com/tx/${tx}?cluster=devnet`);
+    console.log(`Withdrawn Liquidity Transaction Signature: https://explorer.solana.com/tx/${tx}?cluster=devnet`);
     console.log("Withdrawn liquidity");
   });
 });

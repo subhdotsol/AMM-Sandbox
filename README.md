@@ -70,22 +70,22 @@ The test suite validates the following core functionalities:
 
 ```console
   amm creation
-https://explorer.solana.com/tx/54MkLtJ16ARuezSs35PmWzqiS2wTST5j2wNdazseagCQKXdttGzRVnRpt2sUyjcaFmz9FckTe73h8hxuZVwqEKte?cluster=devnet
+AMM Initialization Transaction Signature: https://explorer.solana.com/tx/57LraFYWJgjRuctLwvGK67CVun5k9LLGLjF274ThAGxSUyEH2EPAu5rEYQh1NR8fzmevSVeGgUTXazBFzdLPoLLb?cluster=devnet
 AMM initialized successfully
-Minted initial Token X: https://explorer.solana.com/tx/3tReWDteaV4FQsWs82ASAUt4jwWDBfEHMW8LTZwSBQwkued9UtqkfV2HTzNXBT7JdwuYzdSPxrSJcrGJ7LA2KcSq?cluster=devnet
-Minted initial Token Y: https://explorer.solana.com/tx/4wJsqraNgusSYSeZmGwmoy4m7i4TufoktpMFDv4f38an2aR4nc5NSmrUg8v3tAomg8pkXoTZtQRPeHtcFQhb9hAz?cluster=devnet
-    ✔ Initializing the AMM pool (3870ms)
-https://explorer.solana.com/tx/2NAT8iUXnfK18wPtUw6WGRqwFC9XukeGrRCjNS9pfwTjVk1YoMUTeAreaJKtL3XnLWLxhf8UKPSb9HSLJpKNDk2H?cluster=devnet
+Minted initial Token X: https://explorer.solana.com/tx/G5QbxF64ibmxbGtWHHv5NG2GRkx4XbbRQgKVPg5YTARtqJemPZHotDD8KLkf34GKRNDEgSVfkZ55k78Xa6FtZBA?cluster=devnet
+Minted initial Token Y: https://explorer.solana.com/tx/bvX9hD42UgfsNrUnJtvw8UsPWVxiQ26kveWdT4px8LJZUs4eqAnNQyiNrDrtvFAvHm4YvdHGsdWV1nEfuGK3Gqu?cluster=devnet
+    ✔ Initializing the AMM pool (5872ms)
+Deposited Liquidity Transaction Signature: https://explorer.solana.com/tx/3wBJVeraPKxEKuaVZynh8cwBhSmqR9yiYmCNXFQG182yWTJUBXZbezoFz3Up9f8zb1butUTM7qjDgUvneABqNPCh?cluster=devnet
 Deposited liquidity
-    ✔ Deposits liquidity into the pool (493ms)
-https://explorer.solana.com/tx/5MQXEAMLzPKnkepdBtbUi7dnRak6FSpTeW2NtBBGAZrK88w3z8ZV44ktFZ7jgJPL6r31LkXsPRRYf1HMDMAeUSQg?cluster=devnet
+    ✔ Deposits liquidity into the pool (462ms)
+Swapped X for Y Transaction Signature: https://explorer.solana.com/tx/QxeGhkRzUd9Wp84DBG1SMghKs3SQJrRqqTxAFq3NEb5Wxz6HBXFsjCtgMCG1FBZ9GkCiJunSGJv4sFsYNnzQDKu?cluster=devnet
 Swapped X for Y
-    ✔ Swaps token X for token Y (489ms)
-https://explorer.solana.com/tx/EZAP62j8JFvAeFeEMM88md7zvLeH2YNxrzpNkeK8xvVqaBLiq1kC8mfTK9yoymSSxzXdu49GBBb72UD3gpcFA2C?cluster=devnet
+    ✔ Swaps token X for token Y (702ms)
+Withdrawn Liquidity Transaction Signature: https://explorer.solana.com/tx/5wGMmMYP38RvJ4vsdEm8NmqwzFojfs1xLb5tPZndjZZTAK7xv9cMHiyn6d7mgNMkb5ByuYnyRWy5U6mSGPPARjEa?cluster=devnet
 Withdrawn liquidity
-    ✔ Withdraws liquidity from the pool (486ms)
+    ✔ Withdraws liquidity from the pool (933ms)
 
-  4 passing (5s)
+  4 passing (8s)
 ```
 
 ## License

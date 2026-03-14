@@ -70,21 +70,20 @@ The test suite validates the following core functionalities:
 
 ```console
   amm creation
-https://explorer.solana.com/tx/...
+https://explorer.solana.com/tx/54MkLtJ16ARuezSs35PmWzqiS2wTST5j2wNdazseagCQKXdttGzRVnRpt2sUyjcaFmz9FckTe73h8hxuZVwqEKte?cluster=devnet
 AMM initialized successfully
-    ✔ Initializing the AMM pool (3834ms)
-
-https://explorer.solana.com/tx/...
+Minted initial Token X: https://explorer.solana.com/tx/3tReWDteaV4FQsWs82ASAUt4jwWDBfEHMW8LTZwSBQwkued9UtqkfV2HTzNXBT7JdwuYzdSPxrSJcrGJ7LA2KcSq?cluster=devnet
+Minted initial Token Y: https://explorer.solana.com/tx/4wJsqraNgusSYSeZmGwmoy4m7i4TufoktpMFDv4f38an2aR4nc5NSmrUg8v3tAomg8pkXoTZtQRPeHtcFQhb9hAz?cluster=devnet
+    ✔ Initializing the AMM pool (3870ms)
+https://explorer.solana.com/tx/2NAT8iUXnfK18wPtUw6WGRqwFC9XukeGrRCjNS9pfwTjVk1YoMUTeAreaJKtL3XnLWLxhf8UKPSb9HSLJpKNDk2H?cluster=devnet
 Deposited liquidity
-    ✔ Deposits liquidity into the pool (490ms)
-
-https://explorer.solana.com/tx/...
+    ✔ Deposits liquidity into the pool (493ms)
+https://explorer.solana.com/tx/5MQXEAMLzPKnkepdBtbUi7dnRak6FSpTeW2NtBBGAZrK88w3z8ZV44ktFZ7jgJPL6r31LkXsPRRYf1HMDMAeUSQg?cluster=devnet
 Swapped X for Y
     ✔ Swaps token X for token Y (489ms)
-
-https://explorer.solana.com/tx/...
+https://explorer.solana.com/tx/EZAP62j8JFvAeFeEMM88md7zvLeH2YNxrzpNkeK8xvVqaBLiq1kC8mfTK9yoymSSxzXdu49GBBb72UD3gpcFA2C?cluster=devnet
 Withdrawn liquidity
-    ✔ Withdraws liquidity from the pool (487ms)
+    ✔ Withdraws liquidity from the pool (486ms)
 
   4 passing (5s)
 ```

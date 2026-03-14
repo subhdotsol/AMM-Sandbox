@@ -89,7 +89,7 @@ describe("amm creation", () => {
       admin.publicKey
     );
 
-    await mintTo(
+    const txMintX = await mintTo(
       connection,
       admin.payer,
       mintX,
@@ -97,7 +97,9 @@ describe("amm creation", () => {
       admin.payer,
       1_000_000
     );
-    await mintTo(
+    console.log(`Minted initial Token X: https://explorer.solana.com/tx/${txMintX}?cluster=devnet`);
+
+    const txMintY = await mintTo(
       connection,
       admin.payer,
       mintY,
@@ -105,6 +107,7 @@ describe("amm creation", () => {
       admin.payer,
       1_000_000
     );
+    console.log(`Minted initial Token Y: https://explorer.solana.com/tx/${txMintY}?cluster=devnet`);
 
     userAtaX = ataX.address;
     userAtaY = ataY.address;

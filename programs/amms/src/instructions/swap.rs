@@ -139,7 +139,7 @@ impl <'info> Swap <'info> {
 
     // Execute the swap by depositing input tokens and withdrawing output tokens 
     self.deposit_token(is_x , swap_result.deposit)?;
-    self.withdraw_token(is_x , swap_result.withdraw)?;
+    self.withdraw_token(!is_x , swap_result.withdraw)?;
 
     Ok(())
     }

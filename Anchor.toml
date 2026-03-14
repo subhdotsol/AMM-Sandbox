@@ -4,11 +4,9 @@ package_manager = "yarn"
 [features]
 resolution = true
 skip-lint = false
-default = ["anchor-debug"]
-anchor-debug = []
 
 [programs.localnet]
-amms = "95RfKC6UDmxeMjR9AAhF9xVauYmeFQawVK5W51tHn8wb"
+amms = "9a95ZYK3AT5HcivR5X59niNgqdYP9oE5XqomA2kNHWRV"
 
 [registry]
 url = "https://api.apr.dev"

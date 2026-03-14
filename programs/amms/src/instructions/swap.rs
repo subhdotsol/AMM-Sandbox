@@ -42,7 +42,7 @@ pub struct Swap<'info> {
         associated_token::authority = config,
         associated_token::token_program = token_program,
     )]
-    pub vault_x: Account<'info, TokenAccount>,
+    pub vault_x: Box<Account<'info, TokenAccount>>,
 
     /// The vault that holds all deposited token Y
     // mutable because swap operation either deposit or withdraws from the vault 
@@ -53,7 +53,7 @@ pub struct Swap<'info> {
         associated_token::authority = config,
         associated_token::token_program = token_program
     )]
-    pub vault_y: Account<'info, TokenAccount>,
+    pub vault_y: Box<Account<'info, TokenAccount>>,
 
     // user token account for token x 
     /// Will be created if it doesnt exists , user pays for creation 
@@ -65,7 +65,7 @@ pub struct Swap<'info> {
         associated_token::authority = user,
         associated_token::token_program = token_program,
     )]
-    pub user_ata_x: Account<'info, TokenAccount>,
+    pub user_ata_x: Box<Account<'info, TokenAccount>>,
 
     // user token account for token y 
     // will be create if it doesnt exists , user pays for creation
@@ -77,7 +77,7 @@ pub struct Swap<'info> {
         associated_token::authority = user,
         associated_token::token_program = token_program,
     )]
-    pub user_ata_y: Account<'info, TokenAccount>,
+    pub user_ata_y: Box<Account<'info, TokenAccount>>,
 
      /// SPL Token program for token operations
     pub token_program: Program<'info, Token>,

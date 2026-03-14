@@ -67,7 +67,7 @@ describe("amm creation", () => {
       .rpc();
     console.log(`https://explorer.solana.com/tx/${tx}?cluster=devnet`);
 
-    console.log("✅ AMM initialized successfully");
+    console.log("AMM initialized successfully");
 
     // Create user token accounts and mint initial balances
     const ataX = await getOrCreateAssociatedTokenAccount(
@@ -120,19 +120,19 @@ describe("amm creation", () => {
       .deposit(depositAmount, maxX, maxY)
       .accounts({
         user: admin.publicKey,
-        userTokenX: userAtaX,
-        userTokenY: userAtaY,
-        userLp: userLpAta,
+        mintX,
+        mintY,
         config: configPda,
         vaultX,
         vaultY,
-        lpMint,
-        tokenProgram: anchor.utils.token.TOKEN_PROGRAM_ID,
+        userAtaX,
+        userAtaY,
+        userAtaLp: userLpAta,
       })
       .rpc();
 
     console.log(`https://explorer.solana.com/tx/${tx}?cluster=devnet`);
-    console.log("✅ Deposited liquidity");
+    console.log("Deposited liquidity");
   });
 
   it("Swaps token X for token Y", async () => {
@@ -143,16 +143,41 @@ describe("amm creation", () => {
       .swap(true, amountIn, minOut)
       .accounts({
         user: admin.publicKey,
-        userTokenIn: userAtaX,
-        userTokenOut: userAtaY,
+        mintX,
+        mintY,
         config: configPda,
-        vaultIn: vaultX,
-        vaultOut: vaultY,
-        tokenProgram: anchor.utils.token.TOKEN_PROGRAM_ID,
+        vaultX,
+        vaultY,
+        userAtaX,
+        userAtaY,
       })
       .rpc();
 
     console.log(`https://explorer.solana.com/tx/${tx}?cluster=devnet`);
-    console.log("✅ Swapped X for Y");
+    console.log("Swapped X for Y");
+  });
+
+  it("Withdraws liquidity from the pool", async () => {
+    const withdrawAmount = new anchor.BN(500_000);
+    const minX = new anchor.BN(100_000);
+    const minY = new anchor.BN(100_000);
+
+    const tx = await program.methods
+      .withdraw(withdrawAmount, minX, minY)
+      .accounts({
+        user: admin.publicKey,
+        mintX,
+        mintY,
+        config: configPda,
+        vaultX,
+        vaultY,
+        userAtaX,
+        userAtaY,
+      })
+      .signers([admin.payer])
+      .rpc();
+
+    console.log(`https://explorer.solana.com/tx/${tx}?cluster=devnet`);
+    console.log("Withdrawn liquidity");
   });
 });

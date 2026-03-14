@@ -57,7 +57,7 @@ pub struct Deposit<'info> {
         associated_token::token_program = token_program,
 
     )]
-    pub vault_x : Account<'info, TokenAccount>,
+    pub vault_x : Box<Account<'info, TokenAccount>>,
 
     // The vault that hold all the deposits of token Y 
     // mutable becayse we need to transfer tokens into it
@@ -68,7 +68,7 @@ pub struct Deposit<'info> {
         associated_token::authority = config,
         associated_token::token_program = token_program,
     )]
-    pub vault_y : Account<'info, TokenAccount>,
+    pub vault_y : Box<Account<'info, TokenAccount>>,
 
     // Users token account for x token
     // mutable because we're transferring tokens from it
@@ -78,7 +78,7 @@ pub struct Deposit<'info> {
         associated_token::authority = user,
         associated_token::token_program = token_program,
     )]
-    pub user_ata_x : Account<'info, TokenAccount>,
+    pub user_ata_x : Box<Account<'info, TokenAccount>>,
 
     // Users token account for Y token 
     // mutable because we're transferring tokens from the it 
@@ -88,7 +88,7 @@ pub struct Deposit<'info> {
         associated_token::authority = user,
         associated_token::token_program = token_program,
     )]
-    pub user_ata_y : Account<'info, TokenAccount>,
+    pub user_ata_y : Box<Account<'info, TokenAccount>>,
 
     // User's token account for LP tokens
     // Will be created if it doesn't exist, user pays for creation
@@ -100,7 +100,7 @@ pub struct Deposit<'info> {
         associated_token::authority = user,
         associated_token::token_program = token_program
     )]
-    pub user_ata_lp: Account<'info, TokenAccount>,
+    pub user_ata_lp: Box<Account<'info, TokenAccount>>,
 
     // SPL Token program for token operations
     pub token_program: Program<'info, Token>,
